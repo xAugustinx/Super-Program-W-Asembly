@@ -21,22 +21,33 @@ _start:
 	syscall
 
 
+	mango:
+
 	mov rax, 0
 	mov rdi, 0
 	lea rsi, [rip + buffer]
 	mov rdx, 255
 	syscall
 
+	mov r8, rax
+	
+
 
 	add byte ptr [rip + buffer], 1
-	#add byte ptr [rip + meowZmienna], 1
 
 	mov rax, 1
 	mov rdi, 1
 	lea rsi, [rip + buffer]
 	syscall
 
+
+	
+	CMP byte ptr [rip + buffer],47
+	JNE mango
+
 	#jmp mango
+
+	
 
 
 	mov rax, 60
